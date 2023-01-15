@@ -1,7 +1,18 @@
 from random import randint
 from graphic_arts.start_game_banner import run_screensaver
 
+
 def attack(char_name: str, char_class: str) -> str:
+    """Generate damage value made by player.
+
+    Args:
+        char_name (str): Players name.
+        char_class (str): Players class which has its own damage point range
+        to inflict.
+
+    Returns:
+        str: Damage point made by player.
+    """
     if char_class == 'warrior':
         return (f'{char_name} нанёс урон противнику равный '
                 f'{5 + randint(3, 5)}')
@@ -14,6 +25,16 @@ def attack(char_name: str, char_class: str) -> str:
 
 
 def defence(char_name: str, char_class: str) -> str:
+    """Generate damage value blocked by player.
+
+    Args:
+        char_name (str): Players name.
+        char_class (str): Players class which has its own damage point range
+        to block.
+
+    Returns:
+        str: Damage point blocked by player.
+    """
     if char_class == 'warrior':
         return (f'{char_name} блокировал {10 + randint(5, 10)} урона')
     if char_class == 'mage':
@@ -23,6 +44,16 @@ def defence(char_name: str, char_class: str) -> str:
 
 
 def special(char_name: str, char_class: str) -> str:
+    """Cast player's ultimate.
+
+    Args:
+        char_name (str): Players name.
+        char_class (str): Players class which has its own ultimate
+        to cast.
+
+    Returns:
+        str: Player's ultimate casted.
+    """
     if char_class == 'warrior':
         return (f'{char_name} применил специальное умение '
                 f'«Выносливость {80 + 25}»')
@@ -33,6 +64,17 @@ def special(char_name: str, char_class: str) -> str:
 
 
 def start_training(char_name: str, char_class: str) -> str:
+    """Start player's training.
+
+    Args:
+        char_name (str): Players name.
+        char_class (str): layers class which has its own ultimate,
+        to cast and damage point range to block or inflict.
+
+    Returns:
+        str: Player's ultimate casted and damage points blocked or
+        inflicked.
+    """
     if char_class == 'warrior':
         print(f'{char_name}, ты Воитель — отличный боец ближнего боя.')
     if char_class == 'mage':
@@ -57,6 +99,11 @@ def start_training(char_name: str, char_class: str) -> str:
 
 
 def choice_char_class() -> str:
+    """Allow player to choose his class.
+
+    Returns:
+        str: Class chosen by player.
+    """
     approve_choice: str = None
     char_class: str = None
     while approve_choice != 'y':
@@ -78,7 +125,7 @@ def choice_char_class() -> str:
     return char_class
 
 
-def main() -> None:
+if __name__ == '__main__':
     run_screensaver()
     print('Приветствую тебя, искатель приключений!')
     print('Прежде чем начать игру...')
